@@ -23,6 +23,7 @@ db.authors.find({});
 db.authors.find({ dateOfDeath: { $exists: true } });
 
 // Select all authors born before 1990
+// not running
 
 db.authors.find({ dateOfBith: { $lt: ISOdate("1990-01-01") } });
 
