@@ -1,0 +1,42 @@
+// Select the database to use.
+use('books');
+
+// Select all books
+db.books.find({}).pretty();
+
+// Select all books for a given category
+db.books.find({category: 'History'}).pretty();
+
+// Select all books published before 2002
+db.books.find({releaseYear : {$lt : new Date('2002-01-01') }}).pretty();
+
+// Select all books with more than one author
+db.books.find({ $where:'this.Authors.length>1'} ).pretty();
+db.books.find({ "Authors.1": {$exists: true}} ).pretty();
+
+// Select all authors
+db.authors.find({}).pretty();
+
+// Select all death authors
+db.authors.find({deathDate: {$lt : new Date()}}).pretty();
+
+// Select all authors born before 1990
+db.authors.find({birthDate: {$lt : new Date('1990-01-01')}}).pretty();
+
+// Select all authors from a given country
+db.authors.find({ country:'Spain'}).pretty();
+db.authors.find({ country: { $regex: /spain/i } }).pretty();
+
+
+// Year of a ISO date
+db.authors.aggregate(
+  [
+    {
+      $project:
+        {
+          _id: 0,
+          birthYear: { $year: "$birthDate" }
+        }
+    }
+  ]
+);
