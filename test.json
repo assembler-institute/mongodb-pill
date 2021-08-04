@@ -1,0 +1,22 @@
+db.createCollection("authors", 
+{validator: 
+  {$and: 
+    [ 
+      {name: 
+        {$type: "string"}
+      },
+      {lastName: 
+        {$type: "string"}
+      },
+      {dateOfBirth: 
+        {$type: "date"}
+      },
+      {dateOfDeath: 
+        {$type: "date"}
+      },
+      {country: 
+        {$type: "string"}
+      }
+    ]
+  }
+})
