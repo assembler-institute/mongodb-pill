@@ -1,0 +1,30 @@
+const database = 'MongoDbPill';
+
+use(database);
+
+//Insert the authors
+db.authors.insertMany([
+  {
+    name: "Charles", 
+    lastName: "Bukowski", 
+    dateOfBirth: '1920-08-16', 
+    dateOfDeath: '1994-03-09', 
+    country: "Weimar Republic"
+  },
+  {
+    name: "Haruki", 
+    lastName: "Murakami", 
+    dateOfBirth: '1949-01-12', 
+    country: "Japan"
+  },
+  {
+    name: "Arthur", 
+    lastName: "Conan Doyle", 
+    dateOfBirth: '1859-05-22', 
+    dateOfDeath: '1930-07-07', 
+    country: "United Kingdom"
+  },
+])
+
+
+

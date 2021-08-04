@@ -1,0 +1,11 @@
+//Select all the authors
+db.authors.find();
+
+//Select all the death Authors
+db.authors.find({dateOfDeath: { $exists: true}});
+
+//Select all authors born before 1990
+db.authors.find({dateOfBirth: { $lt: '1900-01-01'}});
+
+//Select all authors from a given Country
+db.authors.find({country: 'Japan'})

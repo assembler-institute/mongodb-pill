@@ -1,0 +1,21 @@
+const database = 'MongoDbPill';
+const bookCollection = 'books';
+const authorCollection = 'authors';
+
+// Create a new database.
+use(database);
+
+
+// The prototype form to create a regular collection:
+db.createCollection(authorCollection,
+  {
+    name: String,
+    lastName: String,
+    dateOfBirth: Date,
+    dateOfDeath: Date,
+    country: String,
+  }
+)
+
+// Create a new collection without any data type defined
+db.createCollection("books")
