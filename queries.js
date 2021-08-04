@@ -20,9 +20,7 @@ db.books.find({}).pretty();
 db.books.find({ Category: "Historia" }).pretty();
 
 // Select all books with earlier release date
-db.books
-  .find({ Release_Year: { $lt: ISODate("2002-01-01T00:00:00Z") } })
-  .pretty();
+db.books.find({ Release_Year: { $lt: ISODate("2002-01-01T00:00:00Z") } }).pretty();
 
 // Select all books with more than 1 author
 db.books.find({ $where: "this.Authors.length > 1" }).count();
@@ -31,11 +29,14 @@ db.books.find({ $where: "this.Authors.length > 1" }).count();
 db.authors.find({}).pretty();
 
 // Select all authors that will die before salected date
-db.authors
-  .find({ Date_of_death: { $lt: ISODate("2031-01-01T00:00:00Z") } })
-  .count();
+db.authors.find({ Date_of_death: { $lt: ISODate("2031-01-01T00:00:00Z") } }).count();
 
 // Select all authors that will die before salected date
-db.authors
-  .find({ Date_of_Birth: { $lt: ISODate("1990-01-01T00:00:00Z") } })
-  .count();
+db.authors.find({ Date_of_Birth: { $lt: ISODate("1990-01-01T00:00:00Z") } }).count();
+
+// Delte all books of specific author
+db.books.deleteMany({"Authors.Name":"Json"});
+
+// Delte all Authors already deaths.
+db.authors.deleteMany({Date_of_death: { $lt: ISODate("2021-01-01T00:00:00Z") }})
+
