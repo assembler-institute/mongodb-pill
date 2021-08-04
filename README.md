@@ -64,6 +64,12 @@ Start the MongoDB server
 mongod --dbpath mongodb-data
 ```
 
+To create All tables write:
+```
+node startDB.js
+```
+in the console
+
 After some logs from the server, you should see a message like this:
 ```sh
 {"t":{"$date":"2021-07-15T16:41:47.587+02:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
