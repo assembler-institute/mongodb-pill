@@ -1,8 +1,10 @@
 // Select the database to use.
 use("books");
 
+/* -------------------------------------------------------------------------- */
+/*                                   INSERT                                   */
+/* -------------------------------------------------------------------------- */
 // Insert authors
-
 db.authors.insertMany([
   {
     name: "Jerome David",
@@ -93,7 +95,6 @@ db.books.insertMany([
 /* -------------------------------------------------------------------------- */
 /*                                   UPDATE                                   */
 /* -------------------------------------------------------------------------- */
-
 // Add a date of death to one author
 db.authors.find({ name: "Pere" });
 db.authors.updateOne(
@@ -101,13 +102,12 @@ db.authors.updateOne(
   { $set: { dod: new Date("1994-07-26") } }
 );
 
-// ???? Add new release year to book
+// Add new release year to book
 db.books.find({ title: "The Catcher in the Rye" }, { releaseYear: 1 }).pretty();
 db.books.updateOne(
   { title: "The Catcher in the Rye" },
   { $set: { releaseYear: new Date("1952-01-01") } }
 );
-// { $year: { date: new Date("Jan 7, 2003") } }
 
 // Add "New edition" to book title
 db.books.find({ title: "The Catcher in the Rye" }, { title: 1 }).pretty();
@@ -119,7 +119,6 @@ db.books.updateOne(
 /* -------------------------------------------------------------------------- */
 /*                                     GET                                    */
 /* -------------------------------------------------------------------------- */
-
 // Select all books (Title, author name, author last_name)
 db.books
   .find({}, { title: 1, "authors.name": 1, "authors.last_name": 1, _id: 0 })
@@ -158,7 +157,6 @@ db.authors
 /* -------------------------------------------------------------------------- */
 /*                                   DELETE                                   */
 /* -------------------------------------------------------------------------- */
-
 // Delete all books from given author
 db.books.deleteMany({ "authors.name": "Jerome David" });
 
