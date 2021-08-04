@@ -96,21 +96,18 @@ db.books.insertMany([
 /*                                   UPDATE                                   */
 /* -------------------------------------------------------------------------- */
 // Add a date of death to one author
-db.authors.find({ name: "Pere" });
 db.authors.updateOne(
   { name: "Pere" },
   { $set: { dod: new Date("1994-07-26") } }
 );
 
 // Add new release year to book
-db.books.find({ title: "The Catcher in the Rye" }, { releaseYear: 1 }).pretty();
 db.books.updateOne(
   { title: "The Catcher in the Rye" },
   { $set: { releaseYear: new Date("1952-01-01") } }
 );
 
 // Add "New edition" to book title
-db.books.find({ title: "The Catcher in the Rye" }, { title: 1 }).pretty();
 db.books.updateOne(
   { title: "The Catcher in the Rye" },
   { $set: { title: "The Catcher in the Rye | New edition" } }
@@ -131,8 +128,6 @@ db.books.find({ category: "Thriller" }, { title: 1, _id: 0 }).pretty();
 db.books.find({ releaseYear: { $gt: 2002 } }, { title: 1, _id: 0 }).pretty();
 
 // Select all books with more than one author
-// db.books.find({authors:{$size:2}}, {title: 1, _id:0, })
-// db.books.find({$expr:{$gt:[{$size:"$authors"}, 0]}})
 db.books.find({ $where: "this.authors.length > 1" }, { title: 1, _id: 0 });
 
 // Select all authors
