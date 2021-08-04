@@ -72,7 +72,7 @@ db.authors.insertOne({
 db.books.insertOne({ 
     title: "El extranjero", 
     release_year: [     
-        new Date("1942-01-01")
+        new Date("1942-01-01").getFullYear()
     ], 
     category: "Novela", 
     authors: [
@@ -83,7 +83,7 @@ db.books.insertOne({
 db.books.insertOne({ 
     title: "La peste", 
     release_year: [     
-        new Date("1947-01-01")
+        new Date("1947-01-01").getFullYear()
     ], 
     category: "Novela", 
     authors: [
@@ -94,7 +94,7 @@ db.books.insertOne({
 db.books.insertOne({ 
     title: "El mito de Sísifo", 
     release_year: [     
-        new Date("1942-01-01")
+        new Date("1942-01-01").getFullYear()
     ], 
     category: "Novela", 
     authors: [
@@ -105,7 +105,7 @@ db.books.insertOne({
 db.books.insertOne({ 
     title: "El Anticristo", 
     release_year: [     
-        new Date("1895-01-01")
+        new Date("1895-01-01").getFullYear()
     ], 
     category: "Filosofía", 
     authors: [
@@ -116,7 +116,7 @@ db.books.insertOne({
 db.books.insertOne({ 
     title: "Voluntad de poder", 
     release_year: [     
-        new Date("1901-01-01")
+        new Date("1901-01-01").getFullYear()
     ], 
     category: "Filosofía", 
     authors: [
@@ -127,7 +127,7 @@ db.books.insertOne({
 db.books.insertOne({ 
     title: "Why I Am So Clever", 
     release_year: [     
-        new Date("1922-01-01")
+        new Date("1922-01-01").getFullYear()
     ], 
     category: "Filosofía", 
     authors: [
@@ -138,7 +138,7 @@ db.books.insertOne({
 db.books.insertOne({ 
     title: "Hamlet", 
     release_year: [
-        new Date("1609-01-01")
+        new Date("1609-01-01").getFullYear()
     ], 
     category: "Tragedia", 
     authors: [
@@ -149,7 +149,7 @@ db.books.insertOne({
 db.books.insertOne({ 
     title: "Romeo y Julieta", 
     release_year: [
-        new Date("1597-01-01")
+        new Date("1597-01-01").getFullYear()
     ], 
     category: "Amor romántico", 
     authors: [
@@ -161,7 +161,7 @@ db.books.insertOne({
 db.books.insertOne({ 
     title: "Macbeth", 
     release_year: [
-        new Date("1606-01-01")
+        new Date("1606-01-01").getFullYear()
     ], 
     category: "Tragedia", 
     authors: [
@@ -173,7 +173,7 @@ db.books.insertOne({
 db.books.insertOne({ 
     title: "Otelo", 
     release_year: [
-        new Date("1604-11-01"),
+        new Date("1604-11-01").getFullYear(),
     ],
     category: "Tragedia", 
     authors: [
@@ -187,7 +187,7 @@ db.books.insertOne({
 db.authors.updateOne({ name: "Albert" }, { $set: { date_death: new Date("1960-01-04") } });
 
 // 2. Add a new release year to a book
-db.books.updateOne({ title: "Otelo" }, { $push: { release_year: new Date("2020-01-01") } });
+db.books.updateOne({ title: "Otelo" }, { $push: { release_year: new Date("2020-01-01").getFullYear() } });
 
 // 3. Change the title of a book adding (“New Edition”)
 db.books.updateOne({ title: "Macbeth" }, [{ $set: { title: { $concat: [ "$title", " New Edition" ] } } }], { multi: true });
@@ -196,12 +196,16 @@ db.books.updateOne({ title: "Macbeth" }, [{ $set: { title: { $concat: [ "$title"
 // Select actions
 
 // 1. Select all books
+db.books.find({}).pretty();
 
 // 2. Select all books for a given category
+db.books.find({ category: "Tragedia"}).pretty();
 
 // 3. Select all books published before 2002
+db.books.find({ release_year: {$lt: 2002}}).pretty();
 
 // 4. Select all books with more than one author
+db.books.find( { $where: "this.authors.length > 1" } ).pretty();
 
 // 5. Select all authors
 
