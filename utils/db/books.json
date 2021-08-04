@@ -1,0 +1,62 @@
+[
+  {
+    "title": "The Catcher in the Rye",
+    "releaseYear": "1951",
+    "category": "Realism",
+    "authors": [{ "id": "1", "name": "Jerome David", "last_name": "Salinger" }]
+  },
+  {
+    "title": "Nine Stories",
+    "releaseYear": "1953",
+    "category": "Short stories",
+    "authors": [{ "id": "1", "name": "Jerome David", "last_name": "Salinger" }]
+  },
+  {
+    "title": "Seymour: An Introduction",
+    "releaseYear": "1959",
+    "category": "Realism",
+    "authors": [{ "id": "1", "name": "Jerome David", "last_name": "Salinger" }]
+  },
+  {
+    "title": "Franny & Zooey",
+    "releaseYear": "1961",
+    "category": "Thriller",
+    "authors": [{ "id": "1", "name": "Jerome David", "last_name": "Salinger" }]
+  },
+  {
+    "title": "Fight Club",
+    "releaseYear": "1996",
+    "category": "Thriller",
+    "authors": [{ "id": "2", "name": "Chuck", "last_name": "Palahniuk" }]
+  },
+  {
+    "title": "Diary",
+    "releaseYear": "2003",
+    "category": "Dirty realism",
+    "authors": [{ "id": "2", "name": "Chuck", "last_name": "Palahniuk" }]
+  },
+  {
+    "title": "Doomed",
+    "releaseYear": "2013",
+    "category": "Psycological thriller",
+    "authors": [{ "id": "2", "name": "Chuck", "last_name": "Palahniuk" }]
+  },
+  {
+    "title": "Adjustment Day",
+    "releaseYear": "2018",
+    "category": "Realism",
+    "authors": [{ "id": "2", "name": "Chuck", "last_name": "Palahniuk" }]
+  },
+  {
+    "title": "L'ombra de l'atzavara",
+    "releaseYear": "1963",
+    "category": "Fantasy",
+    "authors": [{ "id": "3", "name": "Pere", "last_name": "Calders" }]
+  },
+  {
+    "title": "La lluna a casa i altres contes",
+    "releaseYear": "1995",
+    "category": "Fantasy",
+    "authors": [{ "id": "3", "name": "Pere", "last_name": "Calders" }]
+  }
+]
