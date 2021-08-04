@@ -188,3 +188,22 @@ db.books.updateOne({ title: "Otelo" }, { $push: { release_year: new Date("2020-0
 
 // 3. Change the title of a book adding (“New Edition”)
 db.books.updateOne({ title: "Macbeth" }, [{ $set: { title: { $concat: [ "$title", " New Edition" ] } } }], { multi: true });
+
+
+// Select actions
+
+// 1. Select all books
+
+// 2. Select all books for a given category
+
+// 3. Select all books published before 2002
+
+// 4. Select all books with more than one author
+
+// 5. Select all authors
+
+// 6. Select all death authors
+
+// 7. Select all authors born before 1990
+
+// 8. Select all authors from a given country
