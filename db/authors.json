@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Jerome David",
+    "last_name": "Salinger",
+    "dob": "01/01/1919",
+    "dod": "27/01/2010",
+    "country": "United States of America"
+  },
+  {
+    "name": "Chuck",
+    "last_name": "Palahniuk",
+    "dob": "21/02/1962",
+    "dod": "",
+    "country": "United States of America"
+  },
+  {
+    "name": "Pere",
+    "last_name": "Calders",
+    "dob": "29/09/1912",
+    "dod": "21/07/1994",
+    "country": "Catalunya"
+  }
+]
