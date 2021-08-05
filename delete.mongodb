@@ -1,0 +1,17 @@
+// Select the database to use.
+use('books');
+
+// Eliminate all the books for a given author
+db.books.deleteMany({'Authors.name': 'William', 'Authors.lastName': 'Shakespeare'});
+
+// Eliminate all the death authors
+db.authors.deleteMany({ deathDate: {$lt: new Date()} });
+
+// db.authors.insertOne(
+//   { 
+//   'name': 'Javier', 
+//   'lastName': 'Marías', 
+//   'birthDate': new Date('1985-03-01'), 
+//   'country': 'Spain' 
+//   },
+// ); 

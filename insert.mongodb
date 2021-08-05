@@ -1,0 +1,147 @@
+// Select the database to use.
+use('books');
+
+db.movies.find({});
+
+// Insert authors
+db.authors.insertMany([
+  { 
+  'name': 'William', 
+  'lastName': 'Shakespeare', 
+  'birthDate': new Date('1564-03-01'), 
+  'deathDate': new Date('1616-09-05'), 
+  'country': 'Britain' 
+  },
+  { 
+  'name': 'Emily',
+  'lastName': 'Dickinson', 
+  'birthDate': new Date('1830-03-01'), 
+  'deathDate': new Date('1886-09-05'), 
+  'country': 'Spain' 
+  },
+  { 
+  'name': 'Arthur', 
+  'lastName': 'Conan Doyle', 
+  'birthDate': new Date('1859-03-01'), 
+  'deathDate': new Date('1930-09-05'), 
+  'country': 'Britain' 
+  },
+]);
+
+// Insert books
+db.books.insertMany([
+  { 
+  'title': 'Book1', 
+  'releaseYear': [new Date('1900-09-05')], 
+  'category': 'Mystery', 
+  'Authors ': 
+    [
+      {'_id': ObjectId("610a6e14e7e385acdf212e05"), 
+      'name' : 'Arthur', 
+      'lastName' : 'Conan Doyle' 
+      }
+    ] 
+  },
+  { 
+  'title': 'Book2', 
+  'releaseYear': [new Date('1890-12-09')], 
+  'category': 'Fantasy', 
+  'Authors ': 
+    [
+      {'_id': ObjectId("610a6e14e7e385acdf212e05"), 
+      'name' : 'Arthur', 
+      'lastName' : 'Conan Doyle' 
+      }
+    ] 
+  },
+  { 
+  'title': 'Book3', 
+  'releaseYear': [new Date('1919-06-03')], 
+  'category': 'History', 
+  'Authors ': 
+    [
+      {'_id': ObjectId("610a6e14e7e385acdf212e05"), 
+      'name' : 'Arthur', 
+      'lastName' : 'Conan Doyle' 
+      }
+    ] 
+  },
+  { 
+  'title': 'Book4', 
+  'releaseYear': [new Date('1610-09-05')], 
+  'category': 'Romance', 
+  'Authors ': 
+    [
+      {'_id': ObjectId("610a6e14e7e385acdf212e03"), 
+      'name' : 'William', 
+      'lastName' : 'Shakespeare' }
+    ] 
+  },
+  { 
+  'title': 'Book5', 
+  'releaseYear': [new Date('1600-03-09')], 
+  'category': 'Horror', 
+  'Authors ': 
+    [
+      {'_id': ObjectId("610a6e14e7e385acdf212e03"), 
+      'name' : 'William', 
+      'lastName' : 'Shakespeare' }
+    ] 
+  },
+  { 
+  'title': 'Book6', 
+  'releaseYear': [new Date('1595-06-25')], 
+  'category': 'History', 
+  'Authors ': 
+    [
+      {'_id': ObjectId("610a6e14e7e385acdf212e03"), 
+      'name' : 'William', 
+      'lastName' : 'Shakespeare' }
+    ] 
+  },
+  { 
+  'title': 'Book7', 
+  'releaseYear': [new Date('1885-01-01')], 
+  'category': 'Essay', 
+  'Authors ': 
+    [
+      {'_id': ObjectId("610a6e14e7e385acdf212e04"), 
+      'name' : 'Emily', 
+      'lastName' : 'Dickinson' }
+    ] 
+  },
+  { 
+  'title': 'Book8', 
+  'releaseYear': [new Date('1879-11-19')], 
+  'category': 'History', 
+  'Authors ': 
+    [
+      {'_id': ObjectId("610a6e14e7e385acdf212e04"), 
+      'name' : 'Emily', 
+      'lastName' : 'Dickinson' }
+    ] 
+  },
+  { 
+  'title': 'Book9', 
+  'releaseYear': [new Date('1877-04-13')], 
+  'category': 'History', 
+  'Authors ': 
+    [
+      {'_id': ObjectId("610a6e14e7e385acdf212e04"), 
+      'name' : 'Emily', 
+      'lastName' : 'Dickinson' }
+    ]  
+  },
+  { 
+  'title': 'Book10', 
+  'releaseYear': [new Date('1876-01-02')], 
+  'category': 'Suspense', 
+  'Authors ': 
+    [
+      {'_id': ObjectId("610a6e14e7e385acdf212e04"), 
+      'name' : 'Emily', 
+      'lastName' : 'Dickinson' }
+    ] 
+  },
+]);
+
