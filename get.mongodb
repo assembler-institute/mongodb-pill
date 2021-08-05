@@ -35,8 +35,13 @@ db.authors.aggregate(
       $project:
         {
           _id: 0,
-          birthYear: { $year: "$birthDate" }
+          birthYear: { $year: "$birthDate" },
+          name: 1,
+          lastName: 1,
         }
+    },
+    {
+      $match: { "birthYear": {$lt: 1850} }
     }
   ]
-);
+).pretty();
