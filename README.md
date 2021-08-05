@@ -10,14 +10,25 @@
 >
 > You will need to install the database engine and work locally.
 
-## Index <!-- omit in toc -->
+## Index
 
+- [Index](#index)
 - [Requirements](#requirements)
 - [Repository](#repository)
+  - [Installing](#installing)
+    - [On Windows:](#on-windows)
+    - [On UNIX / MacOS:](#on-unix--macos)
+- [Tasks](#tasks)
+  - [Insert data](#insert-data)
+  - [Update data](#update-data)
+  - [Get data](#get-data)
+  - [DELETE DATA](#delete-data)
 - [Technologies used](#technologies-used)
 - [Project delivery](#project-delivery)
 - [Resources](#resources)
-- [Our exercises](#Our exercises)
+- [our exercises](#our-exercises)
+    
+    
 ## Requirements
 
 - Install MongoDB Community version engine locally from [here](https://www.mongodb.com/try/download/community).
@@ -133,7 +144,7 @@ To deliver this project you must follow the steps indicated in the document:
 - [MongoDB University](https://university.mongodb.com/)
 
 
-## Our exercises:∫
+## our exercises
 
 Create all our tables write:
 ```
@@ -141,7 +152,7 @@ Create all our tables write:
 ```
 in the console.
 
-#### Dividimos el ejercicio en dos partes:
+#### Dividimos el ejercicio en dos partes:<!-- omit in toc -->
 
 1. Creacion de colecciones y documentos.
 
