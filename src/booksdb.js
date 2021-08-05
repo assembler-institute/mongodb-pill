@@ -1,5 +1,7 @@
 use("booksDB");
 
+// ------- Books Schema ------- //
+
 db.createCollection("books",{
     validator: { $jsonSchema: { 
       bsonType: "object", 
@@ -18,6 +20,8 @@ db.createCollection("books",{
    }
 }
 });
+
+// ------- Authors Schema ------- //
 
 db.createCollection("authors",{
     validator: { $jsonSchema: { 
@@ -41,7 +45,8 @@ db.createCollection("authors",{
 }
 });
 
-// Insert Authors 
+// ------- Insert Authors ------- //
+
 db.authors.insertOne({ 
     _id: "ALCAM1913",
     name: "Albert", 
@@ -68,7 +73,8 @@ db.authors.insertOne({
     country: "England" 
 });
 
-// Insert Books
+// ------- Insert Books ------- //
+
 db.books.insertOne({ 
     title: "El extranjero", 
     release_year: [     
@@ -165,7 +171,7 @@ db.books.insertOne({
     ], 
     category: "Tragedia", 
     authors: [
-        { id: "WISH1564", name: "William", last_name: "Shakespeare" }
+        { id: "WISH1564", name: "William", last_name: "Shakespeare" }
     ]
 });
 
@@ -177,11 +183,12 @@ db.books.insertOne({
     ],
     category: "Tragedia", 
     authors: [
-        { id: "WISH1564", name: "William", last_name: "Shakespeare" }
+        { id: "WISH1564", name: "William", last_name: "Shakespeare" },
+        { id: "FRIE1844", name: "Friedrich", last_name: "Nietzsche" }
     ]
 });
 
-// Update actions
+// ------- Update actions ------- //
 
 // 1. Add a date of death to one Author
 db.authors.updateOne({ name: "Albert" }, { $set: { date_death: new Date("1960-01-04") } });
@@ -193,7 +200,7 @@ db.books.updateOne({ title: "Otelo" }, { $push: { release_year: new Date("2020-0
 db.books.updateOne({ title: "Macbeth" }, [{ $set: { title: { $concat: [ "$title", " New Edition" ] } } }], { multi: true });
 
 
-// Select actions
+// ------- Select actions ------- //
 
 // 1. Select all books
 db.books.find({}).pretty();
@@ -208,9 +215,21 @@ db.books.find({ release_year: {$lt: 2002}}).pretty();
 db.books.find( { $where: "this.authors.length > 1" } ).pretty();
 
 // 5. Select all authors
+db.authors.find({}).pretty();
 
 // 6. Select all death authors
+db.authors.find({ date_death: { $exists: true }}).pretty();
 
 // 7. Select all authors born before 1990
+db.authors.find({ date_birth: {$lt: new Date("1990-01-01")}}).pretty();
 
 // 8. Select all authors from a given country
+db.authors.find({ country: "England" }).pretty();
+
+// ------- Delete actions ------- //
+
+// 1. Eliminate all the books for a given author 
+db.books.deleteMany({ "authors.id": "WISH1564" });
+
+// 2. Eliminate all the death authors
+db.authors.deleteMany({ date_death: { $exists: true } });
