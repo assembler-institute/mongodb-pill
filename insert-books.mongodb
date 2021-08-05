@@ -1,0 +1,67 @@
+const database = 'MongoDbPill';
+
+use(database);
+
+//Insert the books;
+db.books.insertMany([
+  {
+    title: 'A Study in Scarlet',
+    releaseYear: [1887],
+    category: 'mistery',
+    authors: [{id:'610a70427c71747324505383', name: 'Arthur', lastName: 'Conan Doyle'}],
+  },
+  {
+    title: 'The Hound of the Baskervilles',
+    releaseYear: [1901],
+    category: 'mistery',
+    authors: [{id:'610a70427c71747324505383', name: 'Arthur', lastName: 'Conan Doyle'}],
+  },
+  {
+    title: 'The Sign of Four',
+    releaseYear: [1890],
+    category: 'mistery',
+    authors: [{id:'610a70427c71747324505383', name: 'Arthur', lastName: 'Conan Doyle'}],
+  },
+  {
+    title: '1Q84',
+    releaseYear: [2009],
+    category: 'fiction',
+    authors: [{id:"610a70427c71747324505382", name: 'Haruki', lastName: 'Murakami'}],
+  },
+  {
+    title: 'Tokio Blues',
+    releaseYear: [1987],
+    category: 'pink',
+    authors: [{id:"610a70427c71747324505382", name: 'Haruki', lastName: 'Murakami'}],
+  },
+  {
+    title: 'Kafka on the Shore',
+    releaseYear: [2002],
+    category: 'magic realism',
+    authors: [{id:"610a70427c71747324505382", name: 'Haruki', lastName: 'Murakami'}],
+  },
+  {
+    title: 'Factotum',
+    releaseYear: [1975],
+    category: 'novel',
+    authors: [{id:"610a70427c71747324505381", name: 'Charles', lastName: 'Bukowski'}],
+  },
+  {
+    title: 'The captain is out to lunch and the sailors have taken over the ship',
+    releaseYear: [1998],
+    category: 'magic realism',
+    authors: [{id:"610a70427c71747324505381", name: 'Charles', lastName: 'Bukowski'}],
+  },
+  {
+    title: 'Women',
+    releaseYear: [1978],
+    category: 'magic realism',
+    authors: [{id:"610a70427c71747324505381", name: 'Charles', lastName: 'Bukowski'}],
+  },
+  {
+    title: 'What I talk about when I talk about running',
+    releaseYear: [2007],
+    category: 'biographic',
+    authors: [{id:"610a70427c71747324505382", name: 'Haruki', lastName: 'Murakami'}],
+  },
+]);
