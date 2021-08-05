@@ -17,7 +17,7 @@
 - [Technologies used](#technologies-used)
 - [Project delivery](#project-delivery)
 - [Resources](#resources)
-
+- [Our exercises](#Our exercises)
 ## Requirements
 
 - Install MongoDB Community version engine locally from [here](https://www.mongodb.com/try/download/community).
@@ -64,12 +64,6 @@ Start the MongoDB server
 mongod --dbpath mongodb-data
 ```
 
-To create All tables write:
-```
-node startDB.js
-```
-in the console
-
 After some logs from the server, you should see a message like this:
 ```sh
 {"t":{"$date":"2021-07-15T16:41:47.587+02:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
@@ -84,6 +78,7 @@ Create a new databse
 ```sh
 use books
 ```
+
 
 ## Tasks
 Execute MongoDB queries for the following operations
@@ -136,3 +131,31 @@ To deliver this project you must follow the steps indicated in the document:
 - [W3Schools MongoDB](https://www.w3schools.in/mongodb/query-operations)
 - [MongoDB queries](https://docs.mongodb.com/manual/tutorial/query-documents/)
 - [MongoDB University](https://university.mongodb.com/)
+
+
+## Our exercises:∫
+
+Create all our tables write:
+```
+{...path}/node startDB.js
+```
+in the console.
+
+#### Dividimos el ejercicio en dos partes:
+
+1. Creacion de colecciones y documentos.
+
+- Para esta parte nos propusimos usar mongoose y aplicar esquemas a nuestras collecciones. El porósito inicial era poder relacionar "Authors", con "books" cosa como lo haría una db relacional. Pensamos que através de Mongoose sería posible, peró no fue así o no encontramos la manera.
+
+El resultado , fue aprender a vicular interacciones con "mongodb" con funciones javaScript, y finalmente crear un archivo executable.
+
+```
+startDB.js
+```
+
+2. Update, select , delete
+- Esta parte no usamos "mongoose" por falta de tiempo , así que ejecutamos las queries desde consola 
+
+```
+queries.js
+```
