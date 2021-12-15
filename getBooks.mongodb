@@ -1,0 +1,21 @@
+use MongoDbPill
+
+//Select all books
+db.books.find().pretty()
+
+//Select all the books for a given category
+db.books.find({
+    category: "Comedy"
+}).pretty();
+
+//Select all the books published before 1900
+db.books.find({
+    releaseYear: {
+        $lt: 2002
+    }
+});
+
+//Select all books with more than one author
+db.books.find({
+    $where: 'this.authors.length > 1'
+})
