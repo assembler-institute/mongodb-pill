@@ -1,0 +1,507 @@
+const database = 'MongoDbPill';
+
+use(database);
+
+// Insert list of books
+
+db.books.insertMany([{
+        "title": "Go Tell the Spartans",
+        "releaseYear": [2006],
+        "category": "Drama|War",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000210",
+            "name": "Christina",
+            "lastName": "RowCastle"
+        }],
+    },
+    {
+        "title": "Next Friday",
+        "releaseYear": [2012],
+        "category": "Comedy",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000211",
+            "name": "Christina",
+            "lastName": "RowCastle"
+        }],
+    },
+    {
+        "title": "Double Harness",
+        "releaseYear": [2001],
+        "category": "Comedy|Drama",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000212",
+            "name": "Christina",
+            "lastName": "RowCastle"
+        }],
+    },
+    {
+        "title": "Girl with Green Eyes",
+        "releaseYear": [2012],
+        "category": "Drama|Romance",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000213",
+            "name": "Christina",
+            "lastName": "RowCastle"
+        }],
+    },
+    {
+        "title": "Django",
+        "releaseYear": [2001],
+        "category": "Western",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000214",
+            "name": "Christina",
+            "lastName": "RowCastle"
+        }],
+    },
+    {
+        "title": "Donner Pass",
+        "releaseYear": [1990],
+        "category": "Horror",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000215",
+            "name": "Cornelius",
+            "lastName": "McKensie"
+        }],
+    },
+    {
+        "title": "Butch and Sundance: The Early Days",
+        "releaseYear": [1972],
+        "category": "Western",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000216",
+            "name": "Cornelius",
+            "lastName": "McKensie"
+        }],
+    },
+    {
+        "title": "Strangers with Candy",
+        "releaseYear": [2003],
+        "category": "Comedy",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000217",
+            "name": "Cornelius",
+            "lastName": "McKensie"
+        }],
+    },
+    {
+        "title": "People I Know",
+        "releaseYear": [1996],
+        "category": "Crime|Drama",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000218",
+            "name": "Cornelius",
+            "lastName": "McKensie"
+        }],
+    },
+    {
+        "title": "Crocodile",
+        "releaseYear": [2007],
+        "category": "Horror|Thriller",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000219",
+            "name": "Priscella",
+            "lastName": "Tattershall"
+        }],
+    },
+    {
+        "title": "Shadow Dancer, The (Shadows in the Sun)",
+        "releaseYear": [1998],
+        "category": "Comedy|Drama|Romance",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00021a",
+            "name": "Priscella",
+            "lastName": "Tattershall"
+        }],
+    },
+    {
+        "title": "Lover Come Back",
+        "releaseYear": [2010],
+        "category": "Comedy|Romance",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00021b",
+            "name": "Priscella",
+            "lastName": "Tattershall"
+        }],
+    },
+    {
+        "title": "Okie Noodling",
+        "releaseYear": [1987],
+        "category": "Documentary",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00021c",
+            "name": "Priscella",
+            "lastName": "Tattershall"
+        }],
+    },
+    {
+        "title": "Man, The",
+        "releaseYear": [1997],
+        "category": "Drama",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00021d",
+            "name": "Lark",
+            "lastName": "Astbery"
+        }],
+    },
+    {
+        "title": "Killers, The",
+        "releaseYear": [2010],
+        "category": "Crime|Film-Noir",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00021e",
+            "name": "Lark",
+            "lastName": "Astbery"
+        }],
+    },
+    {
+        "title": "Submarine X-1",
+        "releaseYear": [1997],
+        "category": "Drama|War",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00021f",
+            "name": "Lark",
+            "lastName": "Astbery"
+        }],
+    },
+    {
+        "title": "Flying Leathernecks, The",
+        "releaseYear": [2005],
+        "category": "Action|Drama|War",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000220",
+            "name": "Lark",
+            "lastName": "Astbery"
+        }],
+    },
+    {
+        "title": "Night of the Generals, The",
+        "releaseYear": [2005],
+        "category": "Crime|Drama|Mystery|Thriller|War",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000221",
+            "name": "Francisca",
+            "lastName": "Rodders",
+        }]
+    },
+    {
+        "title": "Parisian Love",
+        "releaseYear": [2012],
+        "category": "Comedy|Crime|Drama|Romance",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000222",
+            "name": "Francisca",
+            "lastName": "Rodders"
+        }],
+    },
+    {
+        "title": "Once Upon a Time in Queens",
+        "releaseYear": [2000],
+        "category": "Comedy|Drama",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000223",
+            "name": "Francisca",
+            "lastName": "Rodders",
+        }],
+    },
+    {
+        "title": "Elling",
+        "releaseYear": [2005],
+        "category": "Comedy|Drama",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000224",
+            "name": "Francisca",
+            "lastName": "Rodders"
+        }],
+    },
+    {
+        "title": "Nothing to Lose",
+        "releaseYear": [2012],
+        "category": "Action|Adventure|Comedy|Crime",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000225",
+            "name": "Francisca",
+            "lastName": "Rodders"
+        }],
+    },
+    {
+        "title": "Angel",
+        "releaseYear": [1987],
+        "category": "Drama|Romance",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000226",
+            "name": "Francisca",
+            "lastName": "Rodders"
+        }],
+    },
+    {
+        "title": "Brain, The",
+        "releaseYear": [2012],
+        "category": "Horror|Sci-Fi",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000227",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "Hunky Dory",
+        "releaseYear": [1996],
+        "category": "Drama|Musical",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000228",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "Once Upon a Forest",
+        "releaseYear": [1992],
+        "category": "Adventure|Animation|Children|Fantasy",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000229",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "House Party",
+        "releaseYear": [2005],
+        "category": "Comedy",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00022a",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "Unhook the Stars",
+        "releaseYear": [1998],
+        "category": "Drama",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00022b",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "Dead Reckoning",
+        "releaseYear": [1989],
+        "category": "Drama|Film-Noir|Mystery",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00022c",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "Koruto wa ore no pasupooto (Colt Is My Passport, A)",
+        "releaseYear": [2002],
+        "category": "Action|Crime|Drama",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00022d",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "Extremely Goofy Movie, An",
+        "releaseYear": [2000],
+        "category": "Animation|Children|Comedy",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00022e",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "Islands in the Stream",
+        "releaseYear": [2005],
+        "category": "Drama",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00022f",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "Ghost Dog: The Way of the Samurai",
+        "releaseYear": [2003],
+        "category": "Crime|Drama",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000230",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "Must Read After My Death",
+        "releaseYear": [2011],
+        "category": "Documentary",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000231",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "Goodbye Pork Pie",
+        "releaseYear": [1996],
+        "category": "Action|Adventure|Drama",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000232",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "Iron Sky",
+        "releaseYear": [2005],
+        "category": "Action|Comedy|Sci-Fi",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000233",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "Two Solutions for One Problem (Dow Rahehal Baraye yek Massaleh)",
+        "releaseYear": [2010],
+        "category": "(no genres listed)",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000234",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "Tears of the Black Tiger (Fah talai jone)",
+        "releaseYear": [1996],
+        "category": "Action|Comedy|Romance|Western",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000235",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "New Wave (Nouvelle vague)",
+        "releaseYear": [1993],
+        "category": "Drama",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000236",
+            "name": "Rudolf",
+            "lastName": "Lavine"
+        }],
+    },
+    {
+        "title": "Sansa",
+        "releaseYear": [2011],
+        "category": "Drama",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000237",
+            "name": "Patin",
+            "lastName": "Dickens"
+        }],
+    },
+    {
+        "title": "Submarine X-1",
+        "releaseYear": [2010],
+        "category": "Drama|War",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000238",
+            "name": "Patin",
+            "lastName": "Dickens"
+        }],
+    },
+    {
+        "title": "Attack Force",
+        "releaseYear": [1993],
+        "category": "Action|Horror|Sci-Fi",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000239",
+            "name": "Patin",
+            "lastName": "Dickens"
+        }],
+    },
+    {
+        "title": "Charlie Chan's Chance",
+        "releaseYear": [1993],
+        "category": "Mystery",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00023a",
+            "name": "Patin",
+            "lastName": "Dickens"
+        }],
+    },
+    {
+        "title": "Lord, Save Us from Your Followers",
+        "releaseYear": [2007],
+        "category": "Documentary",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00023b",
+            "name": "Patin",
+            "lastName": "Dickens"
+        }],
+    },
+    {
+        "title": "Life Is Sweet",
+        "releaseYear": [2010],
+        "category": "Comedy|Drama",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00023c",
+            "name": "Patin",
+            "lastName": "Dickens"
+        }],
+    },
+    {
+        "title": "Asphalt Jungle, The",
+        "releaseYear": [1997],
+        "category": "Crime|Film-Noir",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00023d",
+            "name": "Patin",
+            "lastName": "Dickens"
+        }],
+    },
+    {
+        "title": "Hoax, The",
+        "releaseYear": [2001],
+        "category": "Crime|Drama",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00023e",
+            "name": "Patin",
+            "lastName": "Dickens"
+        }],
+    },
+    {
+        "title": "Veronica Guerin",
+        "releaseYear": [1999],
+        "category": "Crime|Drama|Thriller",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc00023f",
+            "name": "Patin",
+            "lastName": "Dickens"
+        }],
+    },
+    {
+        "title": "Blue Light, The (Blaue Licht, Das)",
+        "releaseYear": [1994],
+        "category": "Drama|Fantasy|Mystery",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000240",
+            "name": "Patin",
+            "lastName": "Dickens"
+        }],
+    },
+    {
+        "title": "Ice Soldiers",
+        "releaseYear": [1998],
+        "category": "Action|Sci-Fi",
+        "authors": [{
+            "$oid": "61ba4dccfc13ae5dfc000241",
+            "name": "Patin",
+            "lastName": "Dickens",
+        }],
+    },
+])
