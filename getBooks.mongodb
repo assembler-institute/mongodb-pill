@@ -8,14 +8,14 @@ db.books.find({
     category: "Comedy"
 }).pretty();
 
-//Select all the books published before 1900
+//Select all the books published before 2002
 db.books.find({
     releaseYear: {
         $lt: 2002
     }
-});
+}).pretty();
 
 //Select all books with more than one author
 db.books.find({
     $where: 'this.authors.length > 1'
-})
+}).pretty();
