@@ -1,0 +1,11 @@
+use MongoDbPill;
+
+// Add a date of death to one Author
+db.authors.updateOne({name:'Christina'},{ $set: { dateOfDeath: '4/12/2020' }});
+
+
+// Add a new release year to a book
+db.books.updateOne({title:'Donner Pass'},{ $push: { releaseYear: 1991 }}); // updates but keeps the old value
+
+// Change the title of a book adding (“New Edition”)
+    db.books.updateOne({title:"People I Know"}, { $set: { title: "People I know: New Edition"}})
