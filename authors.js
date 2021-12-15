@@ -1,4 +1,6 @@
-[
+// INSERT AUTHORS
+
+db.authors.insert([
   {
     "name": "Paulo",
     "lastName": "Coelho",
@@ -20,4 +22,4 @@
     "dateOfDeath": "2010-06-18",
     "country": "Portugal"
   }
-]
+])
