@@ -140,14 +140,7 @@ async function getAuthorsFromCountry(country) {
 async function eliminateBooks(name) {
     const authorId = await authors.findOne({ name: name })
     await books.deleteMany({ authors: authorId._id })
-    // const booksToDelete = await books.find({ authors: { $in: [name] } })
-    // console.log(booksToDelete);
-    // await authors.findOneAndUpdate({ name: name }, { $set: { books: [] } })
-    // const author = await authors.findOne({ name: name })
-    // console.log(author.name);
-    // if (!author.books) {
-    //     console.log("Deleted successfully");
-    // }
+
 }
 
 module.exports = {
@@ -164,9 +157,9 @@ module.exports = {
     getAuthorsBornBefore1990,
     getAuthorsFromCountry,
     eliminateBooks,
-    
+
 }
 
 
- 
+
 
