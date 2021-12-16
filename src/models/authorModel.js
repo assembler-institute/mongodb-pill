@@ -15,7 +15,8 @@ const authorSchema = new Schema({
     name: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+
 
     },
     lastName: {
@@ -39,6 +40,8 @@ const authorSchema = new Schema({
         trim: true
     }
 });
+
+
 
 // export the model
 module.exports = mongoose.model('Authors', authorSchema);

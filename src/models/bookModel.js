@@ -36,6 +36,10 @@ const bookSchema = new Schema({
     }]
 });
 
+// bookSchema.pre('validate', function (next) {
+//     this.authorsCount = this.authors.length;
+//     next();
+// });
 
 // export the model
 module.exports = mongoose.model('Book', bookSchema);
