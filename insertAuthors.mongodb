@@ -4,9 +4,6 @@ use(database);
 
 // Insert list of authors
 
-db.authors.updateOne({name:'Christina'},{ $set: { dateOfDeath: '4/12/2020' }});
-
-
 db.authors.insertMany([{
         "name": "Christina",
         "lastName": "RowCastle",
