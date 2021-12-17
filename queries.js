@@ -69,7 +69,9 @@ db.books.find({ category: 'Narrativa' })
 db.books.find({ releaseYears: { $lt: 2021 } })
 
 //Select all books with more than one author
-db.books.find({ 'authors.1': { $exists: true } })
+db.books.find({ 'authors.1': { $exists: true } })  //busca la posicio 1 de l'array si existeix o no, si fem 2 el mateix
+
+db.books.find( {Authors : {$exists:true}, $where:'this.authors.length>1'} )
 
 //Select all authors
 db.authors.find({})
