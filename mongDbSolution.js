@@ -47,7 +47,7 @@ db.authors.insertMany([
 db.books.insertMany([
   {
     title: "The lord of the rings",
-    relaseYear: [1954],
+    releaseYear: [1954],
     category: "Fantasy",
     authors: [
       {
@@ -59,7 +59,7 @@ db.books.insertMany([
   },
   {
     title: "The Silmarillion",
-    relaseYear: [1977],
+    releaseYear: [1977],
     category: "Fantasy",
     authors: [
       {
@@ -71,7 +71,7 @@ db.books.insertMany([
   },
   {
     title: "The way of the kings",
-    relaseYear: [2010],
+    releaseYear: [2010],
     category: "SciFy",
     authors: [
       {
@@ -83,7 +83,7 @@ db.books.insertMany([
   },
   {
     title: "Words of Radiance",
-    relaseYear: [2014],
+    releaseYear: [2014],
     category: "SciFy",
     authors: [
       {
@@ -95,7 +95,7 @@ db.books.insertMany([
   },
   {
     title: "Oathbringer",
-    relaseYear: [2017],
+    releaseYear: [2017],
     category: "SciFy",
     authors: [
       {
@@ -107,7 +107,7 @@ db.books.insertMany([
   },
   {
     title: "Rhythm of War",
-    relaseYear: [2020],
+    releaseYear: [2020],
     category: "SciFy",
     authors: [
       {
@@ -119,7 +119,7 @@ db.books.insertMany([
   },
   {
     title: "The Name of the Wind",
-    relaseYear: [2007],
+    releaseYear: [2007],
     category: "Fantasy",
     authors: [
       {
@@ -131,7 +131,7 @@ db.books.insertMany([
   },
   {
     title: "The Wise Man's Fear",
-    relaseYear: [2011],
+    releaseYear: [2011],
     category: "Fantasy",
     authors: [
       {
@@ -143,7 +143,7 @@ db.books.insertMany([
   },
   {
     title: "The Doors of Stone",
-    relaseYear: [2023],
+    releaseYear: [2023],
     category: "Fantasy",
     authors: [
       {
@@ -155,7 +155,7 @@ db.books.insertMany([
   },
   {
     title: "Geralt de Rivia Saga",
-    relaseYear: [1992, 1993, 1994, 1995, 1996, 1997, 1999, 2000, 2013],
+    releaseYear: [1992, 1993, 1994, 1995, 1996, 1997, 1999, 2000, 2013],
     category: "Fantasy",
     authors: [
       {
@@ -167,7 +167,7 @@ db.books.insertMany([
   },
   {
     title: "Dracula",
-    relaseYear: [1897],
+    releaseYear: [1897],
     category: "Terror",
     authors: [
       { _id: "61b9d1d876a92c7cd5aa49dc", name: "Abraham", lastName: "Stoker" },
@@ -175,7 +175,7 @@ db.books.insertMany([
   },
   {
     title: "Frankenstein",
-    relaseYear: [1818],
+    releaseYear: [1818],
     category: "Terror",
     authors: [
       { _id: "61b9d1d876a92c7cd5aa49dd", name: "Mary", lastName: "Shelley" },
@@ -196,7 +196,7 @@ db.authors.updateOne(
 //todo Insert new element to array
 db.books.update(
   { _id: ObjectId("61b9dae376a92c7cd5aa49de") },
-  { $push: { relaseYear: 2022 } }
+  { $push: { releaseYear: 2022 } }
 );
 
 //todo Overwrite property
@@ -220,10 +220,10 @@ db.books.find().pretty();
 db.books.find({ category: "Terror" }).pretty();
 
 //todo get all from collection with a prop. greater than value
-db.books.find({ relaseYear: { $gt: 2002 } }).pretty();
+db.books.find({ releaseYear: { $gt: 2002 } }).pretty();
 
 //todo get all from collection with a prop. with more than one array value
-db.books.find({ $where: "this.relaseYear.length > 1" }).pretty();
+db.books.find({ $where: "this.releaseYear.length > 1" }).pretty();
 
 //todo get all from collection
 db.authors.find().pretty();
