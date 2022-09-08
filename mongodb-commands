@@ -1,0 +1,453 @@
+PowerShell 7.2.6
+Copyright (c) Microsoft Corporation.
+
+https://aka.ms/powershell
+Type 'help' to get help.
+
+rabav  ~  ♥ 10:23  mongod
+mongod: The term 'mongod' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+rabav  ~  ♥ 10:23  mongosh
+Current Mongosh Log ID: 6319a6a1bb18865f93f88a56
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.5.4
+Using MongoDB:          6.0.1
+Using Mongosh:          1.5.4
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2022-09-07T11:59:34.573+02:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+------
+   Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+   metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+   The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+   and anyone you share the URL with. MongoDB may use this information to make product
+   improvements and to suggest MongoDB products and deployment options to you.
+
+   To enable free monitoring, run the following command: db.enableFreeMonitoring()
+   To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+------
+
+test> mongod
+ReferenceError: mongod is not defined
+test> show db
+MongoshInvalidInputError: [COMMON-10001] 'db' is not a valid argument for "show".
+test> show dbs
+admin    40.00 KiB
+books     8.00 KiB
+config  108.00 KiB
+local    40.00 KiB
+test> help
+
+  Shell Help:
+
+    use                                        Set current database    show                                       'show databases'/'show dbs': Print a list of all available databases.
+                                               'show collections'/'show tables': Print a list of all collections for current database.                                               'show profile': Prints system.profile information.
+                                               'show users': Print a list of all users for current database.
+
+test> use books
+books> db.authors.insertOne({FirstName:'J.K Rowling', LastName:'Rowling',DateofBirth:Date(July 31, 1965),DateofDeath:'...',Country:'United Kingdom'})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:88)
+
+> 1 | db.authors.insertOne({FirstName:'J.K Rowling', LastName:'Rowling',DateofBirth:Date(July 31, 1965),DateofDeath:'...',Country:'United Kingdom'})
+    |                                                                                         ^
+  2 |
+
+books> db.authors.insertOne({FirstName:'J.K Rowling', LastName:'Rowling',DateofBirth:Date(July 31 1965),DateofDeath:'...',Country:'United Kingdom'})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:88)
+
+> 1 | db.authors.insertOne({FirstName:'J.K Rowling', LastName:'Rowling',DateofBirth:Date(July 31 1965),DateofDeath:'...',Country:'United Kingdom'})
+    |                                                                                         ^
+  2 |
+
+books> db.authors.insertOne({FirstName:'J.K Rowling', LastName:'Rowling',DateofBirth:Date(July, 31 1965),DateofDeath:'...',Country:'United Kingdom'})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:92)
+
+> 1 | db.authors.insertOne({FirstName:'J.K Rowling', LastName:'Rowling',DateofBirth:Date(July, 31 1965),DateofDeath:'...',Country:'United Kingdom'})
+    |                                                                                             ^
+  2 |
+
+books> db.authors.insertOne({FirstName:'J.K Rowling', LastName:'Rowling',DateofBirth:Date(July, 31, 1965),DateofDeath:'...',Country:'United Kingdom'})
+ReferenceError: July is not defined
+books> db.authors.insertOne({FirstName:'J.K Rowling', LastName:'Rowling',DateofBirth:Date(07, 31, 1965),DateofDeath:'...',Country:'United Kingdom'})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6319aa404700a3873e323d7e")
+}
+books> db.authors.updateOne({DateofBirth:new Date("1965-09-24")})
+MongoInvalidArgumentError: Update document requires atomic operators
+books> db.authors.updateOne({ISODate("2012-10-15")})
+Uncaught:
+SyntaxError: Unexpected token (1:30)
+
+> 1 | db.authors.updateOne({ISODate("2012-10-15")})
+    |                               ^
+  2 |
+
+books> db.authors.insertOne({FirstName:'Gabriel Garcia
+Uncaught:
+SyntaxError: Unterminated string constant. (1:32)
+
+> 1 | db.authors.insertOne({FirstName:'Gabriel Garcia
+    |                                 ^
+  2 |
+
+books> db.authors.insertOne({FirstName:'Gabiel', LastName:'Garcia Marquez',DateofBirth:'06-03-1927',DateofDeath:'17-04-2014',Country:'Colombia'})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6319ad644700a3873e323d7f")
+}
+books> db.authors.insertOne({FirstName:'Miguel', LastName:'de Cervantes',DateofBirth:'29-09-1547',DateofDeath:'22-04-1616',Country:'Spain'}
+...
+... db.authors.insertOne({FirstName:'Miguel', LastName:'de Cervantes',DateofBirth:'29-09-1547',DateofDeath:'22-04-1616',Country:'Spain'})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (3:0)
+
+  1 | db.authors.insertOne({FirstName:'Miguel', LastName:'de Cervantes',DateofBirth:'29-09-1547',DateofDeath:'22-04-1616',Country:'Spain'}
+  2 |
+> 3 | db.authors.insertOne({FirstName:'Miguel', LastName:'de Cervantes',DateofBirth:'29-09-1547',DateofDeath:'22-04-1616',Country:'Spain'})
+    | ^
+  4 |
+
+books> db.authors.insertOne({FirstName:'Miguel', LastName:'de Cervantes',DateofBirth:'29-09-1547',DateofDeath:'22-04-1616',Country:'Spain'})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6319ae214700a3873e323d80")
+}
+books> db.books.insertOne({Title:'Harry Potter and the Philosophers Stone',ReleaseYear:'26-06-1997',Genre:'Fantasy Fiction',authors:''})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6319af5d4700a3873e323d81")
+}
+books> db.books.insertOne({Title:'Harry Potter and the Chamber of Secrets',ReleaseYear:'02-07-1997',Genre:'Fantasy Fiction',authors:''})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6319af9d4700a3873e323d82")
+}
+books> db.books.insertOne({Title:'Harry Potter and the Prisoner of Azkaban',ReleaseYear:'08-07-1997',Genre:'Fantasy Fiction',authors:''})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6319afb94700a3873e323d83")
+}
+books> db.books.insertMany
+[Function: insertMany] AsyncFunction {
+  apiVersions: [ 1, Infinity ],
+  serverVersions: [ '3.2.0', '999.999.999' ],
+  returnsPromise: true,
+  topologies: [ 'ReplSet', 'Sharded', 'LoadBalanced', 'Standalone' ],
+  returnType: { type: 'unknown', attributes: {} },
+  deprecated: false,
+  platforms: [ 0, 1, 2 ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+books> db.books.insertMany([{Title:'Harry Potter and the Goblet of Fire',ReleaseYear:2000,Genre:'Fantasy Fiction',authors:''},{Title:'Harry Potter and the Order of the Phoenix',ReleaseYear:2003,Genre:'Fantasy Fiction',authors:''},{Title:'Cien años de soledad',ReleaseYear:1967,Genre:'Magic Realism',authors:''},{Title:'El amor en los tiempos del cólera',ReleaseYear:1985,Genre:'Magic Realism',authors:''}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6319b0e74700a3873e323d84"),
+    '1': ObjectId("6319b0e74700a3873e323d85"),
+    '2': ObjectId("6319b0e74700a3873e323d86"),
+    '3': ObjectId("6319b0e74700a3873e323d87")
+  }
+}
+books> db.books.insertOne({Title:'Crónica de una muerte anunciada',ReleaseYear:'1981',Genre:'Magic Realism',authors:''})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6319b20b4700a3873e323d88")
+}
+books> db.books.insertOne({Title:'Don Quijote de la Mancha​',ReleaseYear:1615,Genre:'Adventure Novel',authors:''})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6319b2ca4700a3873e323d89")
+}
+books> db.books.insertOne({Title:'La Galatea',ReleaseYear:1585,Genre:'Pastoral Novel',authors:''})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6319b3404700a3873e323d8a")
+}
+books> db.books.find
+[Function: find] AsyncFunction {
+  returnsPromise: true,
+  apiVersions: [ 1, Infinity ],
+  returnType: 'Cursor',
+  serverVersions: [ '0.0.0', '999.999.999' ],
+  topologies: [ 'ReplSet', 'Sharded', 'LoadBalanced', 'Standalone' ],
+  deprecated: false,
+  platforms: [ 0, 1, 2 ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+books> db.books.update({Title:'La Galeta'},{$set : {Title:'la galeta'}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+books> db.books.updateOne({Title:'La Galeta'},{$set : {Title:'la galeta'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+books> db.books.updateOne({_id: ObjectId('6319b3404700a3873e323d8a')},{$set:{Title:'lagalleta'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+books> db.books.find ()
+[
+  {
+    _id: ObjectId("6319af5d4700a3873e323d81"),
+    Title: 'Harry Potter and the Philosophers Stone',
+    ReleaseYear: 1997,
+    Genre: 'Fantasy Fiction',
+    authors: [ '' ]
+  },
+  {
+    _id: ObjectId("6319af9d4700a3873e323d82"),
+    Title: 'Harry Potter and the Chamber of Secrets',
+    ReleaseYear: 1998,
+    Genre: 'Fantasy Fiction',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319afb94700a3873e323d83"),
+    Title: 'Harry Potter and the Prisoner of Azkaban',
+    ReleaseYear: 1999,
+    Genre: 'Fantasy Fiction',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b0e74700a3873e323d84"),
+    Title: 'Harry Potter and the Goblet of Fire',
+    ReleaseYear: 2000,
+    Genre: 'Fantasy Fiction',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b0e74700a3873e323d85"),
+    Title: 'Harry Potter and the Order of the Phoenix',
+    ReleaseYear: 2003,
+    Genre: 'Fantasy Fiction',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b0e74700a3873e323d86"),
+    Title: 'Cien años de soledad',
+    ReleaseYear: 1967,
+    Genre: 'Magic Realism',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b0e74700a3873e323d87"),
+    Title: 'El amor en los tiempos del cólera',
+    ReleaseYear: 1985,
+    Genre: 'Magic Realism',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b20b4700a3873e323d88"),
+    Title: 'Crónica de una muerte anunciada',
+    ReleaseYear: 1981,
+    Genre: 'Magic Realism',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b2ca4700a3873e323d89"),
+    Title: 'Don Quijote de la Mancha​',
+    ReleaseYear: 1615,
+    Genre: 'Adventure Novel',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b3404700a3873e323d8a"),
+    Title: 'lagalleta',
+    ReleaseYear: 1585,
+    Genre: 'Pastoral Novel',
+    authors: ''
+  }
+]
+books> db.books.updateOne({_id: ObjectId('6319b3404700a3873e323d8a')},{$set:{Title:'La Galatea'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+books> db.books.find ()
+[
+  {
+    _id: ObjectId("6319af5d4700a3873e323d81"),
+    Title: 'Harry Potter and the Philosophers Stone',
+    ReleaseYear: 1997,
+    Genre: 'Fantasy Fiction',
+    authors: [ '' ]
+  },
+  {
+    _id: ObjectId("6319af9d4700a3873e323d82"),
+    Title: 'Harry Potter and the Chamber of Secrets',
+    ReleaseYear: 1998,
+    Genre: 'Fantasy Fiction',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319afb94700a3873e323d83"),
+    Title: 'Harry Potter and the Prisoner of Azkaban',
+    ReleaseYear: 1999,
+    Genre: 'Fantasy Fiction',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b0e74700a3873e323d84"),
+    Title: 'Harry Potter and the Goblet of Fire',
+    ReleaseYear: 2000,
+    Genre: 'Fantasy Fiction',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b0e74700a3873e323d85"),
+    Title: 'Harry Potter and the Order of the Phoenix',
+    ReleaseYear: 2003,
+    Genre: 'Fantasy Fiction',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b0e74700a3873e323d86"),
+    Title: 'Cien años de soledad',
+    ReleaseYear: 1967,
+    Genre: 'Magic Realism',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b0e74700a3873e323d87"),
+    Title: 'El amor en los tiempos del cólera',
+    ReleaseYear: 1985,
+    Genre: 'Magic Realism',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b20b4700a3873e323d88"),
+    Title: 'Crónica de una muerte anunciada',
+    ReleaseYear: 1981,
+    Genre: 'Magic Realism',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b2ca4700a3873e323d89"),
+    Title: 'Don Quijote de la Mancha​',
+    ReleaseYear: 1615,
+    Genre: 'Adventure Novel',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b3404700a3873e323d8a"),
+    Title: 'La Galatea',
+    ReleaseYear: 1585,
+    Genre: 'Pastoral Novel',
+    authors: ''
+  }
+]
+books> db.books.updateOne({_id: ObjectId('6319b3404700a3873e323d8a')},{$set:{Author:[]}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+books> db.books.find ()
+[
+  {
+    _id: ObjectId("6319af5d4700a3873e323d81"),
+    Title: 'Harry Potter and the Philosophers Stone',
+    ReleaseYear: 1997,
+    Genre: 'Fantasy Fiction',
+    authors: [ '' ]
+  },
+  {
+    _id: ObjectId("6319af9d4700a3873e323d82"),
+    Title: 'Harry Potter and the Chamber of Secrets',
+    ReleaseYear: 1998,
+    Genre: 'Fantasy Fiction',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319afb94700a3873e323d83"),
+    Title: 'Harry Potter and the Prisoner of Azkaban',
+    ReleaseYear: 1999,
+    Genre: 'Fantasy Fiction',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b0e74700a3873e323d84"),
+    Title: 'Harry Potter and the Goblet of Fire',
+    ReleaseYear: 2000,
+    Genre: 'Fantasy Fiction',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b0e74700a3873e323d85"),
+    Title: 'Harry Potter and the Order of the Phoenix',
+    ReleaseYear: 2003,
+    Genre: 'Fantasy Fiction',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b0e74700a3873e323d86"),
+    Title: 'Cien años de soledad',
+    ReleaseYear: 1967,
+    Genre: 'Magic Realism',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b0e74700a3873e323d87"),
+    Title: 'El amor en los tiempos del cólera',
+    ReleaseYear: 1985,
+    Genre: 'Magic Realism',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b20b4700a3873e323d88"),
+    Title: 'Crónica de una muerte anunciada',
+    ReleaseYear: 1981,
+    Genre: 'Magic Realism',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b2ca4700a3873e323d89"),
+    Title: 'Don Quijote de la Mancha​',
+    ReleaseYear: 1615,
+    Genre: 'Adventure Novel',
+    authors: ''
+  },
+  {
+    _id: ObjectId("6319b3404700a3873e323d8a"),
+    Title: 'La Galatea',
+    ReleaseYear: 1585,
+    Genre: 'Pastoral Novel',
+    authors: '',
+    Author: []
+  }
+]
+books>
