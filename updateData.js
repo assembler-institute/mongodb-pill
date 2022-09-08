@@ -15,6 +15,6 @@ db.books.updateOne(
 )
 
 db.books.updateOne(
-  {title: 'Pride and Prejudice'}, 
-  {$set: {title : 'Pride and Prejudice - New Edition'}}
+  {title: 'Pride and Prejudice'},  /* Where to update */
+  {$set: {title : 'Pride and Prejudice - New Edition'}} /* What to update */
 )
