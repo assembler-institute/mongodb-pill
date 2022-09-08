@@ -1,0 +1,64 @@
+
+//* CREATE DATA BASE
+use('books');
+
+//* INSERT DATA
+// Insert at least 3 authors with the following fields.
+db.authors.insertMany([
+  { name: 'Sonia', lastname: 'Fernández-Vidal', birthdate: new Date('1978-03-08'), deathdate:'alive', country:'Spain' },
+  { name: 'Jane', lastname: 'Austen', birthdate: new Date('1775-12-16'), deathdate:new Date('1817-07-18'), country:'United Kingdom' },
+  { name: 'Mathias', lastname: 'Malzieu', birthdate: new Date('1974-04-16'), deathdate:'alive', country:'France' },
+]);
+
+// Insert at least 10 books with the following fields:
+db.publications.insertMany([
+  { name:'butter', releaseyear: new Date('2012-09-04'), category: 'Fiction', authors: [{id:1, name:'Erin', lastname:'Jade Lange' }]}, 
+  { name:'White Bird', releaseyear: new Date('2019-09-03'), category: 'Graphic Novel', authors: [{id:2, name:'R.J.', lastname:'Palacio' }]}, 
+  { name:'Brujas y Nigromantes', releaseyear: new Date('2019-03-25'), category: 'Novel', authors: [{id:3, name:'Raquel', lastname:'Brune' }]}, 
+  { name:'Scars Like Wings', releaseyear: new Date('2019-10-01'), category: 'Drama', authors: [{id:4, name:'Erin', lastname:'Stewart' }]}, 
+  { name:'Moby-Dick', releaseyear: new Date('1851-10-18'), category: 'Fiction, Adventure', authors: [{id:5, name:'Herman', lastname:'Melville' }]}, 
+  { name:'Mio fratello rincorre i dinosauri', releaseyear: new Date('2017-03-02'), category: 'Non Fiction', authors: [{id:6, name:'Giacomo', lastname:'Mazzariol' }]}, 
+  { name:'Wuthering Heights', releaseyear: new Date('1847-12-17'), category: 'Romance', authors: [{id:7, name:'Emily', lastname:'Brontë' }]}, 
+  { name:'Daisy Jones & The Six', releaseyear: new Date('2019-03-05'), category: 'Fiction', authors: [{id:8, name:'Taylor', lastname:'Jenkins Reid' }]}, 
+  { name:'The Call of Cthulhu', releaseyear: new Date('1926-06-24'), category: 'Cosmic horror', authors: [{id:9, name:'H.P.', lastname:'Lovecraft' }]}, 
+  { name:'The Masque of the Red Death', releaseyear: new Date('1842-05-18'), category: 'Horror', authors: [{id:10, name:'Edgar', lastname:'Allan Poe' }]},
+]); 
+
+//* UPDATE DATA
+//Add a date of death to one Author
+db.authors.updateOne({name:'Mathias'}, {$set: {deathdate: new Date('2010-11-23')}});
+
+// Add a new release year to a book
+db.publications.updateOne({name: 'Moby-Dick'}, {$set: {releaseyear: new Date('1999-12-03')}});
+
+// Change the title of a book adding (“New Edition”)
+db.publications.updateOne({name: 'Scars Like Wings'}, {$set: {name: 'Scars Like Wings, "New Edition"'}});
+
+
+//* GET DATA 
+// Select all books
+db.publications.find();
+
+// Select all books for a given category
+db.publications.find({category: 'Fiction'});
+
+// Select all books published before 2002
+db.publications.find({releasename: {$lt: new Date('2002')}});
+
+// Select all authors
+db.authors.find();
+
+// Select all death authors
+db.authors.find({deathdate: {$ne: 'alive'}});
+
+// Select all authors born before 1990
+db.authors.find({birthdate: {$lt: new Date('1990')}});
+
+// Select all authors from a given country
+db.authors.find({country:'United Kingdom'});
+
+// Eliminate all the books for a given author
+db.publications.deleteOne({name:'Brujas y Nigromantes'});
+
+// Eliminate all the death authors
+db.authors.deleteMany({deathdate:{$lte: new Date()}});
