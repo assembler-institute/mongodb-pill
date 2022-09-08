@@ -37,7 +37,7 @@ db.books.insertMany([
     category: "Novel",
     authors:[
       {
-        id: 1,
+        id: ObjectId(),
         name: "Harper",
         lastName: 'Lee'
       }
@@ -49,7 +49,7 @@ db.books.insertMany([
     category: "Novel",
     authors:[
       {
-        id: 1,
+        id: ObjectId(),
         name: "F. Scott",
         lastName: 'Fitzgerald'
       }
@@ -61,7 +61,7 @@ db.books.insertMany([
     category: "Science fiction",
     authors:[
       {
-        id: 1,
+        id: ObjectId(),
         name: "George",
         lastName: 'Orewll'
       }
@@ -73,7 +73,7 @@ db.books.insertMany([
     category: "Novel",
     authors:[
       {
-        id: 1,
+        id: ObjectId(),
         name: "Leo",
         lastName: 'Tolstoy'
       }
@@ -85,7 +85,7 @@ db.books.insertMany([
     category: "Novel",
     authors:[
       {
-        id: 1,
+        id: ObjectId(),
         name: "J.D",
         lastName: 'Salinger'
       }
@@ -97,7 +97,7 @@ db.books.insertMany([
     category: "Novel",
     authors:[
       {
-        id: 1,
+        id: ObjectId(),
         name: "Joseph",
         lastName: 'Heller'
       }
@@ -109,7 +109,7 @@ db.books.insertMany([
     category: "Nautical fictio",
     authors:[
       {
-        id: 1,
+        id: ObjectId(),
         name: "Herman",
         lastName: 'Melville'
       }
@@ -121,7 +121,7 @@ db.books.insertMany([
     category: "Nautical fiction",
     authors:[
       {
-        id: 1,
+        id: ObjectId(),
         name: "Jane",
         lastName: 'Austen'
       }
@@ -133,7 +133,7 @@ db.books.insertMany([
     category: "Psychological Fiction",
     authors:[
       {
-        id: 1,
+        id: ObjectId(),
         name: "Fyodor",
         lastName: 'Dostoevsky'
       }
@@ -145,10 +145,24 @@ db.books.insertMany([
     category: "Novel",
     authors:[
       {
-        id: 1,
+        id: ObjectId(),
         name: "Alice",
         lastName: 'Walker'
       }
     ]
   },
+  {
+    title: `Harry Potter and the Philosopher's Stone`,
+    releaseYear: new Date('1997-06-26'),
+    category: "Fantasy Fiction",
+    authors:[
+      {
+        id: ObjectId(),
+        name: "Joanne K.",
+        lastName: 'Rowling'
+      }
+    ]
+  },
 ])
+
+
