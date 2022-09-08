@@ -121,7 +121,7 @@ Execute MongoDB queries for the following operations
 
 ## Project delivery
 
-To deliver this project you must do a pull request
+To deliver this project you must do a pull request with all the scripts used.
 
 ## Resources
 - [Official MongoDB documentation](https://www.mongodb.com)
