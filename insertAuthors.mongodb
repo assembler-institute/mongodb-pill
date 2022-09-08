@@ -1,0 +1,56 @@
+const database = 'MongoDbPill';
+
+use(database);
+
+// Insert list of authors
+
+db.authors.insertMany([{
+        "name": "Christina",
+        "lastName": "RowCastle",
+        "dateOfBirth": "6/11/1956",
+        "dateOfDeath": null,
+        "country": "Ireland"
+    },
+    {
+        "name": "Cornelius",
+        "lastName": "McKensie",
+        "dateOfBirth": "4/12/1961",
+        "dateOfDeath": "4/12/2021",
+        "country": "England"
+    },
+    {
+        "name": "Priscella",
+        "lastName": "Tattershall",
+        "dateOfBirth": "10/1/1921",
+        "dateOfDeath": "10/1/1982",
+        "country": "Belgium"
+    },
+    {
+        "name": "Lark",
+        "lastName": "Astbery",
+        "dateOfBirth": "2/6/1988",
+        "dateOfDeath": null,
+        "country": "Norway"
+    },
+    {
+        "name": "Francisca",
+        "lastName": "Rodders",
+        "dateOfBirth": "11/9/1876",
+        "dateOfDeath": "11/9/1946",
+        "country": "Luxembourg"
+    },
+    {
+        "name": "Rudolf",
+        "lastName": "Lavine",
+        "dateOfBirth": "3/2/1679",
+        "dateOfDeath": "3/9/1703",
+        "country": "France"
+    },
+    {
+        "name": "Patin",
+        "lastName": "Dickens",
+        "dateOfBirth": "6/9/1850",
+        "dateOfDeath": "6/9/1905",
+        "country": "India"
+    },
+])
