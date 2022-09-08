@@ -1,7 +1,7 @@
 /* commands for books collection - MongoDB */
 
 
-/* Inserting data */ 
+/* Inserting data */
 
 // authors  //
 db.authors.insertMany([
@@ -28,7 +28,7 @@ db.authors.insertMany([
   },
 ])
 
-// books // 
+// books //
 
 db.books.insertMany([
   {
