@@ -121,9 +121,7 @@ Execute MongoDB queries for the following operations
 
 ## Project delivery
 
-To deliver this project you must follow the steps indicated in the document:
-
-- [Submitting a solution](https://www.notion.so/Submitting-a-solution-524dab1a71dd4b96903f26385e24cdb6)
+To deliver this project you must do a pull request
 
 ## Resources
 - [Official MongoDB documentation](https://www.mongodb.com)
