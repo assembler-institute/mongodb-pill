@@ -10,14 +10,25 @@
 >
 > You will need to install the database engine and work locally.
 
-## Index <!-- omit in toc -->
+## Index
 
+- [Index](#index)
 - [Requirements](#requirements)
 - [Repository](#repository)
+  - [Installing](#installing)
+    - [On Windows:](#on-windows)
+    - [On UNIX / MacOS:](#on-unix--macos)
+- [Tasks](#tasks)
+  - [Insert data](#insert-data)
+  - [Update data](#update-data)
+  - [Get data](#get-data)
+  - [DELETE DATA](#delete-data)
 - [Technologies used](#technologies-used)
 - [Project delivery](#project-delivery)
 - [Resources](#resources)
-
+- [our exercises](#our-exercises)
+    
+    
 ## Requirements
 
 - Install MongoDB Community version engine locally from [here](https://www.mongodb.com/try/download/community).
@@ -79,6 +90,7 @@ Create a new databse
 use books
 ```
 
+
 ## Tasks
 Execute MongoDB queries for the following operations
 
@@ -128,3 +140,31 @@ To deliver this project you must do a pull request with all the scripts used.
 - [W3Schools MongoDB](https://www.w3schools.in/mongodb/query-operations)
 - [MongoDB queries](https://docs.mongodb.com/manual/tutorial/query-documents/)
 - [MongoDB University](https://university.mongodb.com/)
+
+
+## our exercises
+
+Create all our tables write:
+```
+{...path}/node startDB.js
+```
+in the console.
+
+#### Dividimos el ejercicio en dos partes:<!-- omit in toc -->
+
+1. Creacion de colecciones y documentos.
+
+- Para esta parte nos propusimos usar mongoose y aplicar esquemas a nuestras collecciones. El porósito inicial era poder relacionar "Authors", con "books" cosa como lo haría una db relacional. Pensamos que através de Mongoose sería posible, peró no fue así o no encontramos la manera.
+
+El resultado , fue aprender a vicular interacciones con "mongodb" con funciones javaScript, y finalmente crear un archivo executable.
+
+```
+startDB.js
+```
+
+2. Update, select , delete
+- Esta parte no usamos "mongoose" por falta de tiempo , así que ejecutamos las queries desde consola 
+
+```
+queries.js
+```
